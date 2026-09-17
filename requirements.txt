@@ -1,4 +1,5 @@
 Flask
-Werkzeug
 cryptography
+supabase
+python-dotenv
 gunicorn
