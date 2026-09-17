@@ -54,23 +54,29 @@ pip install -r requirements.txt
 
 Create a `.env` file in the project folder and add the required configuration:
 
+```env
 SUPABASE_URL=your_supabase_url
 SUPABASE_KEY=your_supabase_key
 ENCRYPTION_KEY=your_encryption_key
 OTP_EMAIL=your_email
 OTP_PASSWORD=your_gmail_app_password
+```
 
 ### Step 6: Run the application
 
+```bash
 python app.py
+```
 
 Open the application in a browser:
 
+```text
 http://127.0.0.1:5000
-
+```
 
 ## 5. Project Structure / Modules
 
+```text
 secure-exam-question-paper-system/
 │
 ├── app.py
@@ -95,17 +101,14 @@ secure-exam-question-paper-system/
 │   └── style.css
 │
 └── uploads/
-
+```
 
 ### Module Purpose
 
-app.py – Main Flask application. Handles login, OTP, uploads, review, approval, release, access, and audit logs.
-users.py- Stores authorized users and their roles.
-encryption.py – Provides AES-GCM encryption and decryption for question papers.
-requirements.txt– Contains required Python packages.
-templates/– Contains HTML pages for different system functions.
-static/style.css – Contains the styling and design of the application.
-uploads/– Local upload folder retained for project compatibility.
-
-## 6. Sample Input and Output
-
+* **`app.py`** – Main Flask application. Handles login, OTP, uploads, review, approval, release, access, and audit logs.
+* **`users.py`** – Stores authorized users and their roles.
+* **`encryption.py`** – Provides AES-GCM encryption and decryption for question papers.
+* **`requirements.txt`** – Contains required Python packages.
+* **`templates/`** – Contains HTML pages for different system functions.
+* **`static/style.css`** – Contains the styling and design of the application.
+* **`uploads/`** – Local upload folder retained for project compatibility.
