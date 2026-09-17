@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Secure Exam System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="auth-page">
+<div class="auth-wrap">
+    <a class="back-home" href="{{ url_for('home') }}">← Back to home</a>
+    <div class="auth-card">
+        <div class="brand centered"><span>Secure Exam System</span></div>
+        <h1>Welcome Back</h1>
+        <p class="auth-subtitle">Sign in to securely manage examination papers.</p>
+        {% if error %}<div class="alert error">{{ error }}</div>{% endif %}
+        <form method="POST">
+            <label>Email Address</label>
+            <input type="email" name="email" placeholder="Enter your email" required>
+            <label>Password</label>
+            <input type="password" name="password" placeholder="Enter your password" required>
+            <button class="primary-btn full" type="submit">Continue to OTP →</button>
+        </form>
+        <div class="auth-note">Your account must be authorized by the system administrator.</div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard | Secure Exam System</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<header class="appbar">
+    <div class="brand"><span>Secure Exam System</span></div>
+    <div class="user-area"><span>{{ current_email }}</span><span class="role-tag">{{ current_role }}</span><a href="{{ url_for('logout') }}">Logout</a></div>
+</header>
+<div class="page-shell">
+    <div class="page-intro">
+        <div><span class="eyebrow">SECURE CONTROL PANEL</span><h1>Welcome Back</h1><p>Manage examination question papers through a controlled and auditable workflow.</p></div>
+        <div class="date-chip">{{ current_role }}</div>
+    </div>
+
+    <div class="metric-grid">
+        <div class="metric"><span>Total Papers</span><strong>{{ total }}</strong><small>Registered paper</small></div>
+        <div class="metric"><span>Pending Review</span><strong>{{ pending }}</strong><small>Waiting for reviewer</small></div>
+        <div class="metric"><span>Approved</span><strong>{{ approved }}</strong><small>Ready for release</small></div>
+        <div class="metric"><span>Released</span><strong>{{ released }}</strong><small>Available to centre</small></div>
+    </div>
+
+    <section class="panel">
+        <div class="panel-heading"><div><span class="eyebrow">YOUR WORKSPACE</span><h2>Available actions</h2></div></div>
+        <div class="action-grid">
+            {% if current_role == "Question Setter" %}
+            <a class="action-card" href="{{ url_for('upload') }}"><b>01</b><h3>Upload Question Papers</h3><p>Add one or more encrypted PDF papers with exam and release schedule.</p><span>Open →</span></a>
+            {% elif current_role == "Reviewer" %}
+            <a class="action-card" href="{{ url_for('review') }}"><b>01</b><h3>Review Papers</h3><p>Open each question paper and approve or reject it.</p><span>Open →</span></a>
+            {% elif current_role == "Admin" %}
+            <a class="action-card" href="{{ url_for('status') }}"><b>01</b><h3>Paper Status</h3><p>View all papers and their current workflow status</p><span>Open →</span></a>
+            <a class="action-card" href="{{ url_for('release') }}"><b>02</b><h3>Release Control</h3><p>Release one approved paper for an exam after the scheduled time.</p><span>Open →</span></a>
+            <a class="action-card" href="{{ url_for('logs') }}"><b>03</b><h3>Audit Logs</h3><p>Monitor system actions with timestamp, user and activity details.</p><span>Open →</span></a>
+            {% elif current_role == "Exam Centre" %}
+            <a class="action-card" href="{{ url_for('centre_papers') }}"><b>01</b><h3>Released Papers</h3><p>View and open question papers that have been officially released.</p><span>Open →</span></a>
+            {% endif %}
+        </div>
+    </section>
+</div>
+</body>
+</html>

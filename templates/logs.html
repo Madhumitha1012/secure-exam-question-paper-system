@@ -1,0 +1,147 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Audit Logs | Secure Exam System</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <header class="appbar">
+
+        <span>
+            Secure Exam System
+        </span>
+
+        <div class="user-area">
+
+            <span>
+                {{ current_email }}
+            </span>
+
+            <a href="{{ url_for('dashboard') }}">
+                Dashboard
+            </a>
+
+            <a href="{{ url_for('logout') }}">
+                Logout
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <div class="page-shell">
+
+        <div class="page-intro">
+
+            <div>
+
+                <span class="eyebrow">
+                    ADMIN MONITORING
+                </span>
+
+                <h1>
+                    Audit Logs
+                </h1>
+
+                <p>
+                    A clear record of authentication, upload, review, release
+                    and paper access events.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <section class="panel table-panel">
+
+            <div class="table-toolbar">
+
+                <strong>
+                    Activity History
+                </strong>
+
+                <span>
+                    {{ logs|length }} recorded events
+                </span>
+
+            </div>
+
+
+            <div class="table-wrap">
+
+                <table class="audit-table">
+
+                    <thead>
+
+                        <tr>
+                            <th>#</th>
+                            <th>Date & Time</th>
+                            <th>User</th>
+                            <th>Activity</th>
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody>
+
+                        {% for log in logs %}
+
+                        <tr>
+
+                            <td class="row-number">
+                                {{ loop.index }}
+                            </td>
+
+                            <td>
+                                {{ log.time }}
+                            </td>
+
+                            <td>
+                                <span class="user-chip">
+                                    {{ log.email }}
+                                </span>
+                            </td>
+
+                            <td>
+                                {{ log.action }}
+                            </td>
+
+                        </tr>
+
+                        {% else %}
+
+                        <tr>
+
+                            <td colspan="4" class="empty">
+                                No audit activity recorded yet.
+                            </td>
+
+                        </tr>
+
+                        {% endfor %}
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </div>
+
+</body>
+
+</html>
+```

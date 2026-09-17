@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Exam System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="home-page">
+<header class="topbar">
+    <div class="brand">
+        
+        <span>Secure Exam System</span>
+    </div>
+    <nav>
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="#features">Features</a>
+        <a href="#workflow">How It Works</a>
+        {% if current_email %}
+            <a href="{{ url_for('dashboard') }}">Dashboard</a>
+            <a class="nav-pill" href="{{ url_for('logout') }}">Logout</a>
+        {% else %}
+            <a href="{{ url_for('login') }}">Login</a>
+        {% endif %}
+    </nav>
+</header>
+
+<main>
+<section class="hero">
+    <div class="hero-copy">
+        <span class="eyebrow">SECURE EXAMINATION MANAGEMENT</span>
+        <h1>Secure Question Papers.<br><span>Trusted Examination.</span></h1>
+        <p>
+            A secure digital platform for uploading, reviewing, encrypting,
+            approving and controlled release of competitive examination question papers.
+        </p>
+        <div class="hero-actions">
+            {% if current_email %}
+                <a class="primary-btn" href="{{ url_for('dashboard') }}">Open Dashboard →</a>
+            {% else %}
+                <a class="primary-btn" href="{{ url_for('login') }}">Get Started →</a>
+            {% endif %}
+            <a class="secondary-btn" href="#features">Learn More</a>
+        </div>
+    </div>
+    
+</section>
+
+<section class="stats-strip">
+    <div><strong>AES-GCM</strong><span>File Encryption</span></div>
+    <div><strong>OTP</strong><span>Two-Step Login</span></div>
+    <div><strong>RBAC</strong><span>Role-Based Access</span></div>
+    <div><strong>Audit</strong><span>Activity Monitoring</span></div>
+</section>
+
+<section id="features" class="section">
+    <div class="section-heading">
+        <span class="eyebrow">CORE FEATURES</span>
+        <h2>Everything needed for a secure paper workflow</h2>
+        <p>Each stage is controlled so that question papers remain protected from upload to release.</p>
+    </div>
+    <div class="feature-grid">
+        <article class="feature-card"><div class="icon-box">01</div><h3>Secure Login</h3><p>Password authentication with OTP verification before system access.</p></article>
+        <article class="feature-card"><div class="icon-box">02</div><h3>Role-Based Access</h3><p>Admin, Question Setter, Reviewer and Exam Centre receive separate permissions.</p></article>
+        <article class="feature-card"><div class="icon-box">03</div><h3>Encrypted Storage</h3><p>PDF question papers are encrypted with AES-GCM before being stored.</p></article>
+        <article class="feature-card"><div class="icon-box">04</div><h3>Review & Approval</h3><p>Reviewers can inspect papers and record approval or rejection.</p></article>
+        <article class="feature-card"><div class="icon-box">05</div><h3>Controlled Release</h3><p>Only an approved paper can be released after its scheduled time.</p></article>
+        <article class="feature-card"><div class="icon-box">06</div><h3>Audit Monitoring</h3><p>Login, upload, review, release and access events are recorded in audit logs.</p></article>
+    </div>
+</section>
+
+<section id="workflow" class="workflow-section">
+    <div class="section-heading">
+        <span class="eyebrow">SECURITY WORKFLOW</span>
+        <h2>From question setter to exam centre</h2>
+    </div>
+    <div class="workflow">
+        <div class="step"><b>01</b><h3>Upload</h3><p>Setter uploads PDF papers.</p></div>
+        <div class="line"></div>
+        <div class="step"><b>02</b><h3>Encrypt</h3><p>Paper is encrypted before storage.</p></div>
+        <div class="line"></div>
+        <div class="step"><b>03</b><h3>Review</h3><p>Reviewer approves or rejects.</p></div>
+        <div class="line"></div>
+        <div class="step"><b>04</b><h3>Release</h3><p>Admin releases one approved paper.</p></div>
+        <div class="line"></div>
+        <div class="step"><b>05</b><h3>Access</h3><p>Exam centre views released paper.</p></div>
+    </div>
+</section>
+</main>
+
+<footer class="footer">
+    <strong>Secure Exam System</strong>
+    <span>Confidentiality · Integrity · Controlled Access</span>
+</footer>
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Released Papers | Secure Exam System</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <header class="appbar">
+
+        <div class="brand">
+            <span>Secure Exam System</span>
+        </div>
+
+        <div class="user-area">
+            <span>{{ current_email }}</span>
+
+            <span class="role-tag">
+                Exam Centre
+            </span>
+
+            <a href="{{ url_for('dashboard') }}">
+                Dashboard
+            </a>
+
+            <a href="{{ url_for('logout') }}">
+                Logout
+            </a>
+        </div>
+
+    </header>
+
+
+    <div class="page-shell">
+
+        <div class="page-intro">
+
+            <div>
+
+                <span class="eyebrow">
+                    EXAM CENTRE
+                </span>
+
+                <h1>
+                    Released Question Papers
+                </h1>
+
+                <p>
+                    Only papers that are officially released and physically available
+                    are shown here.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <section class="panel table-panel">
+
+            <div class="table-wrap">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>Question Paper</th>
+                            <th>Exam</th>
+                            <th>Exam Date</th>
+                            <th>Released At</th>
+                            <th>Access</th>
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody>
+
+                        {% for paper in papers %}
+
+                        <tr>
+
+                            <td>
+                                <strong>
+                                    {{ paper.filename }}
+                                </strong>
+                            </td>
+
+                            <td>
+                                {{ paper.schedule.exam_name if paper.schedule else "-" }}
+                            </td>
+
+                            <td>
+                                {{ paper.schedule.exam_date if paper.schedule else "-" }}
+                            </td>
+
+                            <td>
+                                {{ paper.time }}
+                            </td>
+
+                            <td>
+                                <a
+                                    class="table-link open-link"
+                                    target="_blank"
+                                    href="{{ url_for('access_paper', filename=paper.filename) }}"
+                                >
+                                    Open Paper →
+                                </a>
+                            </td>
+
+                        </tr>
+
+                        {% else %}
+
+                        <tr>
+
+                            <td colspan="5" class="empty">
+                                No released question papers are currently available.
+                            </td>
+
+                        </tr>
+
+                        {% endfor %}
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </div>
+
+</body>
+
+</html>

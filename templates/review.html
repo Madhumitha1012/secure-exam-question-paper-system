@@ -1,0 +1,200 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Release | Secure Exam System</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <header class="appbar">
+
+        <div class="brand">
+            <span>
+                Secure Exam System
+            </span>
+        </div>
+
+        <div class="user-area">
+
+            <span>
+                {{ current_email }}
+            </span>
+
+            <a href="{{ url_for('dashboard') }}">
+                Dashboard
+            </a>
+
+            <a href="{{ url_for('logout') }}">
+                Logout
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <div class="page-shell">
+
+        <div class="page-intro">
+
+            <div>
+
+                <span class="eyebrow">
+                    ADMIN CONTROL
+                </span>
+
+                <h1>
+                    Release Question Paper
+                </h1>
+
+                <p>
+                    Only an approved paper can be released, and only one paper
+                    can be released for each exam.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        {% if error %}
+
+        <div class="alert error">
+            {{ error }}
+        </div>
+
+        {% endif %}
+
+
+        <section class="panel table-panel">
+
+            <div class="table-wrap">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>Question Paper</th>
+                            <th>Exam</th>
+                            <th>Scheduled Release</th>
+                            <th>Status</th>
+                            <th>Control</th>
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody>
+
+                        {% for row in rows %}
+
+                        <tr>
+
+                            <td>
+                                <strong>
+                                    {{ row.filename }}
+                                </strong>
+                            </td>
+
+                            <td>
+                                {{ row.schedule.exam_name }}
+                            </td>
+
+                            <td>
+                                {{ row.schedule.release_date }}
+                                {{ row.schedule.release_time }}
+                            </td>
+
+                            <td>
+                                <span class="status {{ row.status|lower|replace(' ','-') }}">
+                                    {{ row.status }}
+                                </span>
+                            </td>
+
+                            <td>
+
+                                {% if row.status == "Approved" and row.exists %}
+
+                                <form method="POST">
+
+                                    <input
+                                        type="hidden"
+                                        name="filename"
+                                        value="{{ row.filename }}"
+                                    >
+
+                                    <button class="small-btn release-btn">
+                                        Release Paper
+                                    </button>
+
+                                </form>
+
+
+                                {% elif row.status == "Released" %}
+
+                                <span class="done">
+                                    ✓ Already released
+                                </span>
+
+
+                                {% elif row.status == "Rejected" %}
+
+                                <span class="muted">
+                                    Rejected
+                                </span>
+
+
+                                {% elif not row.exists %}
+
+                                <span class="danger-text">
+                                    File missing
+                                </span>
+
+
+                                {% else %}
+
+                                <span class="muted">
+                                    Not available
+                                </span>
+
+                                {% endif %}
+
+                            </td>
+
+                        </tr>
+
+
+                        {% else %}
+
+                        <tr>
+
+                            <td colspan="5" class="empty">
+                                No papers available for release.
+                            </td>
+
+                        </tr>
+
+                        {% endfor %}
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </div>
+
+</body>
+
+</html>
+```
