@@ -109,6 +109,26 @@ Module Purpose
 
 
 ## 6. Sample Input and Output
-<img width="1876" height="881" alt="image" src="https://github.com/user-attachments/assets/d7f64058-132a-49d9-98ea-0ab21a22d4d1" />
+<img width="1887" height="877" alt="image" src="https://github.com/user-attachments/assets/01f46576-4a53-472b-b861-5a9272dece1f" />
+<img width="1892" height="881" alt="image" src="https://github.com/user-attachments/assets/061eae46-8ef7-4faa-b2a9-4dff779dd096" />
+<img width="1797" height="795" alt="image" src="https://github.com/user-attachments/assets/b7cfa6a8-384b-4c51-80ff-826cba9d7680" />
+### Setter
+<img width="1841" height="872" alt="image" src="https://github.com/user-attachments/assets/c5369354-1146-4664-bad5-a9e2f2dd5130" />
+<img width="1807" height="881" alt="image" src="https://github.com/user-attachments/assets/0264ffed-e674-49d5-88c5-522dd59c433d" />
+
+### Reviewer
+<img width="1800" height="902" alt="image" src="https://github.com/user-attachments/assets/78b85196-a5bf-4acd-9d4d-147dbaeb79a6" />
+
+### Admin
+<img width="1812" height="886" alt="image" src="https://github.com/user-attachments/assets/a906cafa-72f3-411a-9dfc-c206d34b9920" />
+<img width="1796" height="746" alt="image" src="https://github.com/user-attachments/assets/ece9c718-6f78-4cee-9c99-afe8bf61afe7" />
+<img width="1840" height="827" alt="image" src="https://github.com/user-attachments/assets/ac37605f-43e4-4e8c-8da7-428086181e07" />
+<img width="1827" height="865" alt="image" src="https://github.com/user-attachments/assets/aa02757a-1328-4e83-b723-2c5f1e8463f2" />
+<img width="1867" height="847" alt="image" src="https://github.com/user-attachments/assets/ca8c26c7-beaf-4d49-875d-360d0be558b5" />
+
+
+
+
+
 
 
