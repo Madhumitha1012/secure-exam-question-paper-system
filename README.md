@@ -50,33 +50,25 @@ venv\Scripts\activate
 
 pip install -r requirements.txt
 
-### Step 5: Configure environment variables
+### Step 5: Configure Environment Variables
 
-Create a `.env` file in the project folder and add the required configuration:
+Create a .env file in the project folder.
 
-```env
-SUPABASE_URL=your_supabase_url
-SUPABASE_KEY=your_supabase_key
-ENCRYPTION_KEY=your_encryption_key
-OTP_EMAIL=your_email
-OTP_PASSWORD=your_gmail_app_password
-```
+Add the following variables:
 
-### Step 6: Run the application
+SUPABASE_URL – Supabase project URL
+SUPABASE_KEY – Supabase project key
+ENCRYPTION_KEY – Encryption key used for securing question papers
+OTP_EMAIL – Email account used for sending OTP
+OTP_PASSWORD – Gmail app password used for OTP email
+### Step 6: Run the Application
 
-```bash
-python app.py
-```
+After installing the dependencies and configuring the environment variables, run the Flask application using python app.py.
 
-Open the application in a browser:
-
-```text
-http://127.0.0.1:5000
-```
+The application can be opened in a browser at http://127.0.0.1:5000.
 
 ## 5. Project Structure / Modules
 
-```text
 secure-exam-question-paper-system/
 │
 ├── app.py
@@ -101,14 +93,13 @@ secure-exam-question-paper-system/
 │   └── style.css
 │
 └── uploads/
-```
 
-### Module Purpose
 
-* **`app.py`** – Main Flask application. Handles login, OTP, uploads, review, approval, release, access, and audit logs.
-* **`users.py`** – Stores authorized users and their roles.
-* **`encryption.py`** – Provides AES-GCM encryption and decryption for question papers.
-* **`requirements.txt`** – Contains required Python packages.
-* **`templates/`** – Contains HTML pages for different system functions.
-* **`static/style.css`** – Contains the styling and design of the application.
-* **`uploads/`** – Local upload folder retained for project compatibility.
+Module Purpose
+* app.py – Main Flask application that handles login, OTP verification, question paper upload, review, approval, release, access, and audit logs.
+* users.py – Stores authorized users and their roles.
+* encryption.py – Provides AES-GCM encryption and decryption for question papers.
+* requirements.txt – Contains the Python packages required for the project.
+* templates/ – Contains the HTML pages used for different system functions.
+* static/style.css – Contains the styling and design of the application.
+* uploads/ – Folder used for upload-related files.
