@@ -69,6 +69,7 @@ The application can be opened in a browser at http://127.0.0.1:5000.
 
 ## 5. Project Structure / Modules
 
+```text
 secure-exam-question-paper-system/
 │
 ├── app.py
@@ -93,6 +94,8 @@ secure-exam-question-paper-system/
 │   └── style.css
 │
 └── uploads/
+```
+
 
 
 Module Purpose
@@ -103,3 +106,9 @@ Module Purpose
 * templates/ – Contains the HTML pages used for different system functions.
 * static/style.css – Contains the styling and design of the application.
 * uploads/ – Folder used for upload-related files.
+
+
+## 6. Sample Input and Output
+<img width="1876" height="881" alt="image" src="https://github.com/user-attachments/assets/d7f64058-132a-49d9-98ea-0ab21a22d4d1" />
+
+
